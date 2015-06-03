@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/common.js"></script>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/util/dialogUtil.js"></script>
+    <script src="../js/util/storageUtil.js"></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+    	document.addEventListener('plusready',plusReady,false);
+	  	function plusReady(){
+			
+//			// Android处理返回键
+//			plus.key.addEventListener('backbutton',function(){
+//				if(confirm('确认退出？')){
+//					plus.runtime.quit();
+//				}
+//			},false);
+		}
+	  	mui.init();
+    </script>
+</head>
+<body>
+
+	<h3>CART</h3>
+	
+	<h3>Dialogs</h3>
+	<button class="mui-btn" onclick="showAlert('message','title',function(){console.log('callback')});">alert</button>
+	<button class="mui-btn" onclick="showLoading('loading...')">loading</button>
+	<button class="mui-btn" onclick="toast('message')">toast</button>
+	<button class="mui-btn" onclick="showConfirm('message','title',function(){console.log('confirm')}, function(){console.log('cancel')})">confirm</button>
+	<button class="mui-btn" onclick="showPrompt('message','title','placeholder', function(e){console.log(e)})">prompt</button>
+	
+	<h3>Storage</h3>
+	<p>key, value</p>
+	<button class="mui-btn" onclick="muiSet('key','value')">set</button>
+	<button class="mui-btn" onclick="muiRemove('key')">remove</button>
+	<button class="mui-btn" onclick="console.log(muiGetLength())">getLength</button>
+	
+	<button class="mui-btn" onclick="showPrompt('输入查询key','Storage验证','key',function(e){
+		console.log(muiGet(e))
+		})">select</button>
+	
+	
+</body>
+</html>

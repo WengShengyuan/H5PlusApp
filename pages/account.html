@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="HandheldFriendly" content="true"/>
+	<meta name="MobileOptimized" content="320"/>
+    <title></title>
+    <script src="../js/common.js"></script>
+    <script src="../js/mui.min.js"></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+    
+    	document.addEventListener('plusready',plusReady,false);
+    
+        //扫描完的回调函数
+	  	function scaned( t, r, f ) {
+	  		document.getElementById('ticket').value = r;
+		}
+	  	
+	  	function plusReady(){
+			
+//			// Android处理返回键
+//			plus.key.addEventListener('backbutton',function(){
+//				if(confirm('确认退出？')){
+//					plus.runtime.quit();
+//				}
+//			},false);
+		}
+		
+      	mui.init();
+    </script>
+</head>
+<body>
+	
+	<div class="mui-content-padded">
+		<div id="loginForm">
+			<div id="profileCard" class="mui-card">
+				<form class="mui-input-group">
+					<div class="mui-input-row">
+						<label>用户名</label>
+						<input type="text" placeholder="普通输入框">
+					</div>
+					<div class="mui-input-row">
+						<label>密码</label>
+						<input type="text" class="mui-input-clear" placeholder="带清除按钮的输入框">
+					</div>
+					<div class="mui-button-row">
+						<button class="mui-btn mui-btn-primary" onclick="alert('submit');">确认</button>&nbsp;&nbsp;
+						<button class="mui-btn mui-btn-primary" onclick="alert('cancel');">取消</button>&nbsp;&nbsp;
+						<button class="mui-btn mui-btn-primary" onclick="alert('register')">注册</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<hr />
+		<hr />
+		<hr />
+		<div id="registerByTicket">
+			<button class="mui-btn" onclick="clicked('actionpage/barcode_scan.html',true,true);">按钮</button>
+			<label for="ticket">扫描票面信息</label><input type="text" name="ticket" id="ticket" value=""/>
+		</div>
+		
+	</div>
+
+</body>
+</html>
