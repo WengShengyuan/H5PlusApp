@@ -29,7 +29,7 @@ function showConfirm(message, title, confirmFunc, cancelFunc){
 			
 		} else {
 			//后退键
-			cancelFunc;
+			cancelFunc();
 		}
 	},title,buttons);
 }
