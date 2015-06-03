@@ -43,7 +43,12 @@
 	<button class="mui-btn" onclick="showPrompt('输入查询key','Storage验证','key',function(e){
 		console.log(muiGet(e))
 		})">select</button>
-	
+		
+	<h3>Device</h3>
+	<button class="mui-btn" onclick="plus.device.beep(3)">声音</button>
+	<button class="mui-btn" onclick="plus.device.vibrate(500)">震动</button>
+	<button class="mui-btn" onclick="plus.device.setVolume(0.3)">volumeMax</button>
+	<button class="mui-btn" onclick="plus.device.setVolume(0)">mute</button>
 	
 </body>
 </html>
