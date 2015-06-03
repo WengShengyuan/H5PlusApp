@@ -10,6 +10,8 @@
     <script src="../js/common.js"></script>
     <script src="../js/mui.min.js"></script>
     <script src="../js/util/backToKillApp.js"></script>
+    <script src="../js/lib/angular/angular.min.js"></script>
+    <script src="../js/module/testapp.js"></script>
     <link href="../css/mui.min.css" rel="stylesheet"/>
     <script type="text/javascript" charset="utf-8">
     
@@ -21,16 +23,9 @@
 		}
 	  	
 	  	function plusReady(){
-			
-//			// Android处理返回键
-//			plus.key.addEventListener('backbutton',function(){
-//				if(confirm('确认退出？')){
-//					plus.runtime.quit();
-//				}
-//			},false);
 
 		}
-		
+	  	
       	mui.init();
     </script>
 </head>
@@ -64,7 +59,53 @@
 			<label for="ticket">扫描票面信息</label><input type="text" name="ticket" id="ticket" value=""/>
 		</div>
 		
+		<div id="ngtest"  ng-app="indexApp" ng-controller="IndexController">
+			<h3>angular test</h3>
+			<hr></hr>
+			注入 与  绑定
+			<hr></hr>
+			<div>
+				<button ng-click="sayHello()">打招呼</button>
+				<p>$scope.user =<span ng-bind="user"></span></p>
+				<p>$scope.yourname= <span ng-bind="yourname"></span></p>
+			</div>
+			<div>
+				<ul>
+					<li ng-repeat="item in list">hello {{item.name}} you are {{item.gender}} and {{item.age}} years old</li>
+				</ul>
+			</div>
+			<div>
+			input filter key word:<input type="text" ng-model="keyword" />
+			order by select:
+			<select ng-model="orderProp">
+		  		<option value="name">name</option>
+		  		<option value="age">age</option>
+		  		<option value="gender">gender</option>
+			</select>
+				<ul>
+					<li ng-repeat="item in list  | filter:keyword | orderBy:orderProp">hello {{item.name}} you are {{item.gender}} and {{item.age}} years old</li>
+				</ul>
+			</div>
+			
+			<hr></hr>
+			
+			<div>
+				Your name: <input type="text" ng-model="yourname" placeholder="World" />
+		        Hello {{yourname || 'World'}}!
+		        <!-- 双向数据绑定的yourname 变量在$scope域均起作用 -->
+			</div>
+			<a href="{{url}}">{{url}}</a>
+			
+			
+			<hr></hr>
+			HTTP 传值
+			<hr></hr>
+			<div>VALUE VIA HTTP: {{valueViaHttp}}</div>
+			<button ng-click="addOneServiceTrigger()">调用服务</button>
+				
+		</div>
 	</div>
+		
 
 </body>
 </html>
